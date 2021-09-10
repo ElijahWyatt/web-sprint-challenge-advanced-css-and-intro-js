@@ -208,11 +208,11 @@ Practice accessing data above by console.log-ing following items:
 (no functions needed) */
 
 //(1) Name of the first artist (0th index) in the array
-console.log(artists[0].name)
+console.log(artists[0].name);
 
 
 //(2) Bio of the third artist (2nd index) in the array 
-console.log(artists[2].bio)
+console.log(artists[2].bio);
 
 
 
@@ -230,11 +230,11 @@ Use getArtistByIndex to do the following:
 
 Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(array, [i]) {
+  return `the artist at index ${[i]} is ${array[i].name}`;
 }
 
-
+console.log(getArtistByIndex(artists, [2]));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use get20s to do the following: 
@@ -245,9 +245,17 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
-function get20s(/*Your Code Here*/) {
-  /*Your Code Here*/
+function get20s(array) {
+  const newArray = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].years >= '1900-2000'){
+      newArray.push(array[i].name);
+    }
+  }
+  return newArray;  
 }
+
+console.log(get20s(artists));
 
 
 
@@ -260,8 +268,9 @@ Use removeArtist to do the following:
 
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function removeArtist(array, i) {
+  array.splice(i, 1);
+  return array.length;
 }
 
 
